@@ -30,7 +30,11 @@ An application to view and playback audio files using the the PyBee/Toga GUI lib
 Features
 --------
 
-* TODO
+This application uses the Toga library from the PybBee project to create a simple cross platform GUI application that displays the spectral content of an audio file with a "play" button that lets you hear it.
+
+Visit PyBee_ for more into on Toga and related projects.
+
+.. _PyBee: https://pybee.org/
 
 Credits
 -------
