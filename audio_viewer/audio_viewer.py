@@ -32,18 +32,18 @@ def GenerateSpectrum(filename):
     plt.savefig('Figure_temp.png')
 
 
+#TODO: Add a file browser widget for loading the audio content
 class SpectrumApp(toga.App):
 
-
-    def loadAudio(filename):
-        #filename = "./resources/laurel8k.wav"
+    def loadAudio(self, filename):
+        self.filename = filename
         self.file = wave.open(filename, "rb")
         paud = pyaudio.PyAudio()
-        format = paud.get_format_from_width(file.getsampwidth())
+        format = paud.get_format_from_width(self.file.getsampwidth())
 
         self.stream = paud.open(format = format,  
-                                channels = file.getnchannels(),
-                                rate = file.getframerate(),
+                                channels = self.file.getnchannels(),
+                                rate = self.file.getframerate(),
                                 output = True)
 
     def playback(self, widget):
@@ -90,4 +90,5 @@ def main():
 
 if __name__ == '__main__':
     app = main()
+    app.loadAudio('../resources/laurel8k.wav')
     app.main_loop()
