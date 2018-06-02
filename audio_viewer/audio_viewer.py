@@ -34,15 +34,17 @@ def GenerateSpectrum(filename):
 
 class SpectrumApp(toga.App):
 
-    filename = "resources/laurel8k.wav"
-    file = wave.open(filename, "rb")
-    paud = pyaudio.PyAudio()
-    format = paud.get_format_from_width(file.getsampwidth())
-    #open stream  
-    stream = paud.open(format = format,  
-                    channels = file.getnchannels(),  
-                    rate = file.getframerate(),  
-                    output = True)
+
+    def loadAudio(filename):
+        #filename = "./resources/laurel8k.wav"
+        self.file = wave.open(filename, "rb")
+        paud = pyaudio.PyAudio()
+        format = paud.get_format_from_width(file.getsampwidth())
+
+        self.stream = paud.open(format = format,  
+                                channels = file.getnchannels(),
+                                rate = file.getframerate(),
+                                output = True)
 
     def playback(self, widget):
         chunk = 1024
