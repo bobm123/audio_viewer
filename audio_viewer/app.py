@@ -27,9 +27,7 @@ def GenerateSpectrum(filename):
     plt.savefig('Figure_temp.png')
 
 
-
 class SpectrumApp(toga.App):
-
 
     filename = "laurel8k.wav"
     file = wave.open(filename, "rb")
